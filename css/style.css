@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 :root {
   color-scheme: light;
   --ink: #222a32;
@@ -15,8 +17,11 @@
 body {
   margin: 0;
   background: var(--background);
-  color: var(--ink);
-  font: 400 clamp(1rem, 0.95rem + 0.25vw, 1.125rem)/1.65 Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.75;
+  color: #333333;
 }
 
 a { color: var(--link); }
