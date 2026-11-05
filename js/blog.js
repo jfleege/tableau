@@ -1,6 +1,6 @@
 // Add finished post filenames here. Unlisted files do not appear on the blog.
 const postFiles = [
-  '2026-11-05-first-post.md',
+  '2026-11-04-french-fries.md',
 ];
 
 const dateFormat = new Intl.DateTimeFormat('en-US', {

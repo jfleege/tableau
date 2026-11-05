@@ -4,7 +4,7 @@ A personal blog hosted on GitHub Pages. The journal, archive, and about page sha
 
 ## Publish a post
 
-1. Copy `posts/2026-11-05-first-post.md` to a new file named `YYYY-MM-DD-short-title.md`.
+1. Copy `posts/2026-11-04-french-fries.md` to a new file named `YYYY-MM-DD-short-title.md`.
 2. Fill in the metadata and write the body in Markdown. Use a single line for each metadata field. The journal uses the title from the metadata and omits a matching first Markdown heading.
 3. Add the filename to `postFiles` at the top of `js/blog.js`. The journal and archive both sort by date, newest first.
 4. Commit and push to `main`.
