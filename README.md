@@ -1,12 +1,16 @@
 # Tableau
 
-A simple personal blog built with HTML and CSS. Open `index.html` in a browser to preview it.
+A personal blog hosted on GitHub Pages. The journal, archive, and about page share the styles in `css/style.css`.
 
-## Make it yours
+## Publish a post
 
-- Edit the title, tagline, and About section in `index.html`.
-- Replace the two sample entries with your writing. To add another, copy an `<article>` and put it above the previous entries. Give it a unique `id`, use that ID in the title link, and add a matching link in the Archive.
-- Replace the sample label with a date. Use `<time datetime="2026-11-05">November 5, 2026</time>` inside the post metadata for a machine-readable date.
-- Adjust the colors at the top of `styles.css`.
+1. Copy `posts/2026-11-05-first-post.md` to a new file named `YYYY-MM-DD-short-title.md`.
+2. Fill in the metadata and write the body in Markdown. Use a single line for each metadata field. The journal uses the title from the metadata and omits a matching first Markdown heading.
+3. Add the filename to `postFiles` at the top of `js/blog.js`. The journal and archive both sort by date, newest first.
+4. Commit and push to `main`.
 
-The site has no build step or dependencies. To publish it with GitHub Pages, choose **Deploy from a branch** under **Settings → Pages**, then select `main` and `/ (root)` once your changes are merged.
+The two later posts are draft placeholders. Unlisted files stay out of the journal and archive, but the repository is public, so keep private drafts off GitHub.
+
+## Preview locally
+
+Run `python3 -m http.server 8000` from the repository root and open `http://localhost:8000/`. The journal fetches Markdown over HTTP and uses a pinned Markdown renderer. The pages load Roboto from Google Fonts.
