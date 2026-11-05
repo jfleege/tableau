@@ -1,0 +1,112 @@
+:root {
+  color-scheme: light;
+  --ink: #222a32;
+  --muted: #59616a;
+  --navy: #20354b;
+  --link: #285574;
+  --rule: #dce1e5;
+  --paper: #fff;
+  --background: #f0f1ef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font: 1rem/1.7 system-ui, sans-serif;
+}
+
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+.site {
+  max-width: 62rem;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+.masthead {
+  padding: 2.3rem clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.site-title {
+  margin: 0;
+  font: bold clamp(2.65rem, 7vw, 4rem)/1 Georgia, serif;
+}
+
+.site-title a { color: var(--navy); text-decoration: none; }
+.tagline { color: var(--muted); margin: 0.75rem 0 0; }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+  padding: 0.65rem clamp(1.25rem, 5vw, 3.5rem);
+  background: var(--navy);
+}
+
+nav a { color: var(--paper); text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 13rem);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  padding: 2.5rem clamp(1.25rem, 5vw, 3.5rem) 3rem;
+}
+
+.section-label {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+article + article {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+article h2 {
+  margin: 0;
+  font: bold clamp(1.6rem, 4vw, 2.15rem)/1.2 Georgia, serif;
+}
+
+article h2 a { color: var(--ink); text-decoration: none; }
+article h2 a:hover { text-decoration: underline; }
+article p:last-child, aside p { margin-bottom: 0; }
+.post-meta { color: var(--muted); font-size: 0.85rem; margin: 0.4rem 0 1rem; }
+
+aside { font-size: 0.9rem; }
+aside section + section { margin-top: 1.75rem; }
+aside ul { margin: 0; padding-left: 1.15rem; }
+
+footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 1rem clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--paper);
+  transform: translateY(-150%);
+}
+
+.skip-link:focus { transform: none; }
+
+@media (max-width: 42rem) {
+  .site { margin: 0; border: 0; }
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  aside { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+}
