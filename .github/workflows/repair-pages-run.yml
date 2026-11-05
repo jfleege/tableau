@@ -1,0 +1,36 @@
+name: Repair stuck Pages run
+on:
+  push:
+    branches: [repair-stuck-pages-deployment]
+permissions:
+  actions: write
+  pages: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Inspect Pages, cancel the stuck run, and request a build
+        run: |
+          set -uo pipefail
+          repo="repos/$GITHUB_REPOSITORY"
+          run="$repo/actions/runs/42088804129"
+          gh api "$repo/pages" --jq '{source,build_type,status}' || true
+          gh api "$repo/pages/builds/latest" --jq '{status,commit,error}' || true
+          gh api "$repo/pages/builds?per_page=5" --jq '.[] | {status,commit}' || true
+          gh api -X POST "$run/cancel" || true
+          sleep 10
+          if [ "$(gh api "$run" --jq .status)" != completed ]; then
+            gh api -X POST "$run/force-cancel" || true
+          fi
+          for attempt in {1..12}; do
+            state=$(gh api "$run" --jq .status) || exit 1
+            echo "Original run: $state"
+            if [ "$state" = completed ]; then
+              gh api -X POST "$repo/pages/builds" --jq '{status,commit,url}'
+              exit $?
+            fi
+            sleep 5
+          done
+          exit 1
