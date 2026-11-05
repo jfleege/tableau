@@ -1,18 +1,16 @@
 ---
-title: "A Place to Put My Thoughts"
+title: "french fries"
 date: 2026-11-05
-category: Personal
-description: "A brief introduction to Tableau."
+category: personal
+description: "just another day"
 ---
 
-# A Place to Put My Thoughts
+# french fries
 
-I've always wanted somewhere to collect my thoughts.
+today paige and i got french fries—and they were really good.
 
-Not necessarily for an audience, but as a place to
-document things I've learned, experienced, or found
-interesting.
+i think i'm going to miss nights like these after i graduate. the cool, fall nights with the colorful leaves on the ground and the wind nipping at your ears.
 
-## Why Tableau?
+although i don't find myself happy all the time, i'm grateful for nights like these. they ground me, and to make sure i don't forget about them, i want to memorialize them by writing about them.
 
-This is where the rest of the post goes.
+i think these days are my favorite. the fries could've used more salt, though.
