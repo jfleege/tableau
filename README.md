@@ -13,4 +13,4 @@ The two later posts are draft placeholders. Unlisted files stay out of the journ
 
 ## Preview locally
 
-Run `python3 -m http.server 8000` from the repository root and open `http://localhost:8000/`. The journal fetches Markdown over HTTP and uses a pinned Markdown renderer. The pages load Roboto from Google Fonts.
+Run `python3 -m http.server 8000` from the repository root and open `http://localhost:8000/`. The journal fetches Markdown over HTTP and uses a pinned Markdown renderer.
