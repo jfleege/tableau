@@ -61,7 +61,7 @@ function postMeta(post) {
   return meta;
 }
 
-function renderJournal(posts) {
+function renderJournal(post) {
   const markdown = window.markdownit({ html: false });
   markdown.core.ruler.push('post_heading_levels', state => {
     for (const token of state.tokens) {
@@ -72,16 +72,14 @@ function renderJournal(posts) {
     }
   });
 
-  return posts.map(post => {
-    const article = element('article');
-    article.id = post.id;
-    const heading = element('h2');
-    heading.append(postLink(post, '#' + post.id));
-    const body = element('div', undefined, 'post-body');
-    body.innerHTML = markdown.render(post.body);
-    article.append(heading, postMeta(post), body);
-    return article;
-  });
+  const article = element('article');
+  article.id = post.id;
+  const heading = element('h2');
+  heading.append(postLink(post, '#' + post.id));
+  const body = element('div', undefined, 'post-body');
+  body.innerHTML = markdown.render(post.body);
+  article.append(heading, postMeta(post), body);
+  return article;
 }
 
 function renderArchive(posts, recentOnly) {
@@ -114,20 +112,28 @@ async function renderPosts() {
       message.append(archive, '.');
       target.replaceChildren(message);
     } else if (posts.length && view === 'journal') {
-      target.replaceChildren(...renderJournal(posts));
+      const showPost = () => {
+        const requestedId = location.hash.slice(1);
+        const post = posts.find(post => post.id === requestedId) ?? posts[0];
+        if (target.firstElementChild?.id !== post.id) {
+          target.replaceChildren(renderJournal(post));
+          if (failures.length) target.append(element('p', 'Some posts could not be loaded.'));
+        }
+        if (requestedId === post.id) document.getElementById(post.id)?.scrollIntoView();
+      };
+
+      showPost();
+      window.addEventListener('hashchange', showPost);
     } else if (posts.length) {
       target.replaceChildren(renderArchive(posts, view === 'recent'));
     } else {
       target.textContent = failures.length ? 'Posts could not be loaded.' : 'No posts yet.';
     }
-    if (failures.length && posts.length && view !== 'recent') {
+    if (failures.length && posts.length && view === 'archive') {
       target.append(element('p', 'Some posts could not be loaded.'));
     }
     target.removeAttribute('aria-busy');
   }
-
-  // A direct archive link can arrive before the journal has inserted the article.
-  document.getElementById(location.hash.slice(1))?.scrollIntoView();
 }
 
 renderPosts();
