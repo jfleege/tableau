@@ -12,7 +12,8 @@ growing old is weird. growing old in college, specifically, i mean.
 something i reflect on a lot is how much i've *truly* learned in my four years at university, especially in the ever-growing age of AI, when i know i have it easier than those before me. for example, here are a few questions i ask myself almost daily:
 
 * do grades properly measure how much you know?
-* what was the original intent of college or school in general?
+* what was the original intent of college?
+  * was it all a cash grab?
 * am i really applying critical thinking skills every time i open a new chat, or am i just being more efficient?
 
 the easy answer to some of those questions, in my opinion, sits in your mindset—or how self-reflective and adaptive you are when it comes to your own intelligence. as a math and stats major, that looks like applying similar processes from my problem sets to daily life.
