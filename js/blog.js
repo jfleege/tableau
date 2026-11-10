@@ -1,5 +1,6 @@
 // Add finished post filenames here. Unlisted files do not appear on the blog.
 const postFiles = [
+  '2026-11-10-graph-theory.md'
   '2026-11-04-french-fries.md',
 ];
 
